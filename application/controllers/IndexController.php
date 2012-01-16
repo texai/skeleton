@@ -1,11 +1,11 @@
 <?php
 
-class IndexController extends Zend_Controller_Action
+class IndexController extends App_Controller_Action
 {
 
     public function init()
     {
-        /* Initialize action controller here */
+        parent::init();
     }
 
     public function indexAction()
@@ -15,7 +15,6 @@ class IndexController extends Zend_Controller_Action
 
     public function xAction()
     {
-        // action body
     }
 
 
