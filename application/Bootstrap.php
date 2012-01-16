@@ -15,64 +15,39 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $config->setReadOnly();
         $this->setOptions($config->toArray());
         Zend_Registry::set('config', $config);
+        define('DATE_DB', 'Y-m-d H:i:s');
     }
     
     public function _initView()
     {
-        
-        $doctypeHelper = new Zend_View_Helper_Doctype();
-        $doctypeHelper->doctype(Zend_View_Helper_Doctype::XHTML1_TRANSITIONAL);
         $this->bootstrap('layout');
         $layout = $this->getResource('layout');
-        $view = $layout->getView();
+        $v = $layout->getView();
+        $v->addHelperPath('App/View/Helper', 'App_View_Helper');
         $config = Zend_Registry::get('config');
-        $view->headMeta()->appendHttpEquiv('Content-Type', 'text/html; charset=utf-8');
-        $view->headMeta()->appendName("robots", "noindex, nofollow"); // for development
-        
-        $view->headTitle($config->app->title)->setSeparator(' - ');
-        
-        $view->headLink()->appendStylesheet(
-            $config->app->mediaUrl . '/css/main.css', 'all'
-        );
-        $view->headLink()->appendStylesheet(
-            $config->app->mediaUrl . '/css/ie.css', 'all', 'lte IE 8'
-        );
-        $view->headLink(
-            array(
-                'rel' => 'shortcut icon',
-                'href' => $config->app->mediaUrl . '/images/favicon.ico'
-            )
-        );
-        
-        $view->headLink(
-            array(
-                'rel' => 'image_src',
-                'href' => $config->app->mediaUrl . '/images/fb_share.png',
-                'id' => "image_src"
-            )
-        );
-        
-        $view->headScript()->appendFile(
-            $config->app->mediaUrl . '/js/jquery.js'
-        );
-        $view->headScript()->appendFile(
-            $config->app->mediaUrl . '/js/main.js'
-        );            
-
-        $js = sprintf(
-            "var urls = {
-                siteUrl : '%s'
-            }",
-            $config->app->siteUrl
-        );
-        $view->headScript()->appendScript($js);
         
         //Definiendo Constante para Partials
         define('MEDIA_URL', $config->app->mediaUrl);
         define('ELEMENTS_URL', $config->app->elementsUrl);
         define('SITE_URL', $config->app->siteUrl);
         
-        $view->addHelperPath('App/View/Helper', 'App_View_Helper');
+        // Config Built-in View Helpers
+        $doctypeHelper = new Zend_View_Helper_Doctype();
+        $doctypeHelper->doctype(Zend_View_Helper_Doctype::HTML5);
+        $v->headTitle($config->resources->view->title)->setSeparator(' - ');
+        $v->headMeta()->appendHttpEquiv('Content-Type', 'text/html; charset=utf-8');
+        $v->headMeta()->appendName("robots", "noindex, nofollow"); // for development
+        $v->headLink()->appendStylesheet($v->s('/css/bootstrap.min.css'), 'all');
+        $v->headLink()->appendStylesheet($v->s('/css/main.css'), 'all');
+        $v->headLink()->appendStylesheet($v->s('/css/ie.css'), 'all', 'lte IE 8');
+        $v->headLink(array('rel' => 'shortcut icon', 'href' => $v->s('/images/favicon.ico')));
+        $v->headLink(array('rel' => 'image_src', 'href' => $v->s('/images/fb_share.png'), 'id' => "image_src"));
+        $v->headScript()->appendFile($v->s('/js/jquery-1.4.2.min.js'));
+        $v->headScript()->appendFile($v->s('/js/main.js'));            
+        $js = sprintf("var urls = {siteUrl : '%s'}", $config->app->siteUrl);
+        $v->headScript()->appendScript($js);
+        
+        
     }
     
 
@@ -91,19 +66,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $this->_executeResource('log');
         $log = $this->getResource('log');
         Zend_Registry::set('log', $log);
-
-        //Creacion de un Log para BD
-        $columnMapping = array(
-            'idusuario' => 'idusuario',
-            'email' => 'email',
-            'rol' => 'rol',
-            'message' => 'message',
-            'timestamp' => 'timestamp',
-            'userIp' => 'userip',
-            'userHost' => 'userhost'
-        );
-        $logger = new Zend_Log(new Zend_Log_Writer_Db($adapter, "log", $columnMapping));
-        Zend_Registry::set('logDb', $logger);
     }
     
     public function _initActionHelpers()

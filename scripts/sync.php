@@ -4,7 +4,7 @@ $projectPath = realpath(dirname(__FILE__) . '/..');
 $configPath = $projectPath . "/application/configs/application.ini";
 $libraryPath = $projectPath . "/library/";
 $deltaPath = $projectPath . "/sql/";
-$logPath = $projectPath . "/logs/sync.txt";
+$logPath = $projectPath . "/logs/sync.log";
 
 require 'Zend/Loader/Autoloader.php';
 $loader = Zend_Loader_Autoloader::getInstance();

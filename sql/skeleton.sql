@@ -26,7 +26,23 @@ CREATE  TABLE IF NOT EXISTS `user` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `dbversion`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `dbversion` (
+  `version` INT NULL )
+ENGINE = InnoDB;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- Data for table `dbversion`
+-- -----------------------------------------------------
+START TRANSACTION;
+INSERT INTO `dbversion` (`version`) VALUES (0);
+
+COMMIT;

@@ -56,6 +56,7 @@ class App_Controller_Action extends Zend_Controller_Action {
 
         $this->config = $this->getConfig();
         $this->log = $this->getLog();
+        $this->cache = $this->getCache();
         $this->siteUrl = $this->config->app->siteUrl;
         $this->view->assign('siteUrl', $config->app->siteUrl);
 

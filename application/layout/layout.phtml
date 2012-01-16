@@ -1,8 +1,14 @@
-<!DOCTYPE html>
+<?=$this->doctype()?>
+
 <html lang="en">
     <head>
+        <?=$this->headTitle()?>
+        <?=$this->headMeta()?>
+        <?=$this->headLink()?>
+        <?=$this->headStyle()?>
+        <?=$this->headScript()?>
+        
         <meta charset="utf-8">
-        <title>Bootstrap, from Twitter</title>
         <meta name="description" content="">
         <meta name="author" content="">
 
@@ -11,8 +17,6 @@
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 
-        <link rel="stylesheet/less" href="/lib/bootstrap.less">
-        <script src="/js/less-1.1.5.min.js"></script>
 
         <!-- Le styles -->
         <style type="text/css">

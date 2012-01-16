@@ -1,2 +1,3 @@
 .zfproject.xml
 application/configs/private.ini
+cache/zend_cache---*

@@ -1,46 +1,122 @@
-2012-01-15T21:30:26-05:00 NOTICE (5): Page not found
-2012-01-15T21:30:26-05:00 NOTICE (5): Request Parameters
-2012-01-15T21:30:32-05:00 NOTICE (5): Page not found
-2012-01-15T21:30:32-05:00 NOTICE (5): Request Parameters
-2012-01-15T21:30:32-05:00 NOTICE (5): Page not found
-2012-01-15T21:30:32-05:00 NOTICE (5): Request Parameters
-2012-01-15T21:33:40-05:00 CRIT (2): Application error
-2012-01-15T21:33:40-05:00 CRIT (2): Request Parameters
-2012-01-15T21:35:46-05:00 CRIT (2): Application error
-2012-01-15T21:35:46-05:00 CRIT (2): Request Parameters
-2012-01-15T21:39:08-05:00 CRIT (2): Application error
-2012-01-15T21:39:08-05:00 CRIT (2): Request Parameters
-2012-01-15T21:39:23-05:00 CRIT (2): Application error
-2012-01-15T21:39:23-05:00 CRIT (2): Request Parameters
-2012-01-15T21:39:53-05:00 CRIT (2): Application error
-2012-01-15T21:39:53-05:00 CRIT (2): Request Parameters
-2012-01-15T21:41:46-05:00 CRIT (2): Application error
-2012-01-15T21:41:46-05:00 CRIT (2): Request Parameters
-2012-01-15T21:42:52-05:00 CRIT (2): Application error
-2012-01-15T21:42:52-05:00 CRIT (2): Request Parameters
-2012-01-15T21:45:03-05:00 CRIT (2): Application error
-2012-01-15T21:45:03-05:00 CRIT (2): Request Parameters
-2012-01-15T21:45:03-05:00 CRIT (2): Application error
-2012-01-15T21:45:04-05:00 CRIT (2): Request Parameters
-2012-01-15T21:45:07-05:00 CRIT (2): Application error
-2012-01-15T21:45:07-05:00 CRIT (2): Request Parameters
-2012-01-15T21:45:08-05:00 CRIT (2): Application error
-2012-01-15T21:45:08-05:00 CRIT (2): Request Parameters
-2012-01-15T21:48:17-05:00 CRIT (2): Application error
-2012-01-15T21:48:17-05:00 CRIT (2): Request Parameters
-2012-01-15T21:48:18-05:00 CRIT (2): Application error
-2012-01-15T21:48:18-05:00 CRIT (2): Request Parameters
-2012-01-15T21:49:38-05:00 CRIT (2): Application error
-2012-01-15T21:49:38-05:00 CRIT (2): Request Parameters
-2012-01-15T21:49:41-05:00 CRIT (2): Application error
-2012-01-15T21:49:41-05:00 CRIT (2): Request Parameters
-2012-01-15T21:49:53-05:00 CRIT (2): Application error
-2012-01-15T21:49:53-05:00 CRIT (2): Request Parameters
-2012-01-15T21:53:37-05:00 CRIT (2): Application error
-2012-01-15T21:53:37-05:00 CRIT (2): Request Parameters
-2012-01-15T22:23:56-05:00 CRIT (2): Application error
-2012-01-15T22:23:56-05:00 CRIT (2): Request Parameters
-2012-01-16T03:08:23-05:00 CRIT (2): Application error
-2012-01-16T03:08:23-05:00 CRIT (2): Request Parameters
-2012-01-16T03:08:31-05:00 CRIT (2): Application error
-2012-01-16T03:08:31-05:00 CRIT (2): Request Parameters
+2012-01-16T14:44:03-05:00 DEBUG (7): hellowww
+2012-01-16T14:45:29-05:00 DEBUG (7): hellowww
+2012-01-16T14:45:41-05:00 DEBUG (7): hellowww
+2012-01-16T14:45:41-05:00 DEBUG (7): array
+2012-01-16T14:45:51-05:00 DEBUG (7): hellowww
+2012-01-16T14:45:51-05:00 DEBUG (7): array
+2012-01-16T14:46:22-05:00 DEBUG (7): hellowww
+2012-01-16T14:46:22-05:00 DEBUG (7): array
+2012-01-16T14:46:22-05:00 DEBUG (7): hellowww
+2012-01-16T14:46:22-05:00 DEBUG (7): array
+2012-01-16T14:46:42-05:00 DEBUG (7): hellowww
+2012-01-16T14:46:42-05:00 DEBUG (7): object
+2012-01-16T14:47:25-05:00 DEBUG (7): hellowww
+2012-01-16T14:47:25-05:00 DEBUG (7): Zend_Cache_Core Object
+(
+    [_backend:protected] => Zend_Cache_Backend_File Object
+        (
+            [_options:protected] => Array
+                (
+                    [cache_dir] => /home/texai/www/skeleton/cache/
+                    [file_locking] => 1
+                    [read_control] => 1
+                    [read_control_type] => crc32
+                    [hashed_directory_level] => 0
+                    [hashed_directory_umask] => 448
+                    [file_name_prefix] => zend_cache
+                    [cache_file_umask] => 384
+                    [metadatas_array_max_size] => 100
+                )
+
+            [_metadatasArray:protected] => Array
+                (
+                )
+
+            [_directives:protected] => Array
+                (
+                    [lifetime] => 7200
+                    [logging] => 
+                    [logger] => 
+                )
+
+        )
+
+    [_options:protected] => Array
+        (
+            [write_control] => 1
+            [caching] => 1
+            [cache_id_prefix] => 
+            [automatic_serialization] => 1
+            [automatic_cleaning_factor] => 10
+            [lifetime] => 7200
+            [logging] => 
+            [logger] => 
+            [ignore_user_abort] => 
+        )
+
+    [_specificOptions:protected] => Array
+        (
+        )
+
+    [_lastId:Zend_Cache_Core:private] => 
+    [_extendedBackend:protected] => 1
+    [_backendCapabilities:protected] => Array
+        (
+            [automatic_cleaning] => 1
+            [tags] => 1
+            [expired_read] => 1
+            [priority] => 
+            [infinite_lifetime] => 1
+            [get_list] => 1
+        )
+
+)
+
+2012-01-16T14:52:44-05:00 DEBUG (7): hellowww
+2012-01-16T14:52:45-05:00 DEBUG (7): hellowww
+2012-01-16T14:56:28-05:00 DEBUG (7): hellowww
+2012-01-16T14:56:39-05:00 DEBUG (7): hellowww
+2012-01-16T14:56:57-05:00 DEBUG (7): hellowww
+2012-01-16T14:57:14-05:00 DEBUG (7): hellowww
+2012-01-16T14:57:27-05:00 DEBUG (7): hellowww
+2012-01-16T15:11:38-05:00 DEBUG (7): hellowww
+2012-01-16T15:35:00-05:00 DEBUG (7): hellowww
+2012-01-16T15:55:54-05:00 DEBUG (7): hellowww
+2012-01-16T15:56:42-05:00 DEBUG (7): hellowww
+2012-01-16T16:09:07-05:00 DEBUG (7): hellowww
+2012-01-16T16:37:07-05:00 NOTICE (5): Page not found
+2012-01-16T16:37:07-05:00 NOTICE (5): Request Parameters
+2012-01-16T16:37:07-05:00 NOTICE (5): Page not found
+2012-01-16T16:37:07-05:00 NOTICE (5): Page not found
+2012-01-16T16:37:07-05:00 NOTICE (5): Request Parameters
+2012-01-16T16:37:07-05:00 NOTICE (5): Request Parameters
+2012-01-16T16:37:07-05:00 NOTICE (5): Page not found
+2012-01-16T16:37:07-05:00 NOTICE (5): Request Parameters
+2012-01-16T16:37:08-05:00 NOTICE (5): Page not found
+2012-01-16T16:37:08-05:00 NOTICE (5): Request Parameters
+2012-01-16T16:37:30-05:00 NOTICE (5): Page not found
+2012-01-16T16:37:30-05:00 NOTICE (5): Request Parameters
+2012-01-16T16:37:30-05:00 NOTICE (5): Page not found
+2012-01-16T16:37:30-05:00 NOTICE (5): Request Parameters
+2012-01-16T16:37:30-05:00 NOTICE (5): Page not found
+2012-01-16T16:37:30-05:00 NOTICE (5): Request Parameters
+2012-01-16T16:42:19-05:00 NOTICE (5): Page not found
+2012-01-16T16:42:19-05:00 NOTICE (5): Request Parameters
+2012-01-16T16:42:19-05:00 NOTICE (5): Page not found
+2012-01-16T16:42:20-05:00 NOTICE (5): Request Parameters
+2012-01-16T16:42:20-05:00 NOTICE (5): Page not found
+2012-01-16T16:42:20-05:00 NOTICE (5): Request Parameters
+2012-01-16T16:42:20-05:00 NOTICE (5): Page not found
+2012-01-16T16:42:20-05:00 NOTICE (5): Request Parameters
+2012-01-16T16:42:20-05:00 NOTICE (5): Page not found
+2012-01-16T16:42:20-05:00 NOTICE (5): Request Parameters
+2012-01-16T16:44:22-05:00 NOTICE (5): Page not found
+2012-01-16T16:44:22-05:00 NOTICE (5): Request Parameters
+2012-01-16T16:44:22-05:00 NOTICE (5): Page not found
+2012-01-16T16:44:22-05:00 NOTICE (5): Request Parameters
+2012-01-16T16:44:22-05:00 NOTICE (5): Page not found
+2012-01-16T16:44:22-05:00 NOTICE (5): Request Parameters
+2012-01-16T16:44:57-05:00 NOTICE (5): Page not found
+2012-01-16T16:44:57-05:00 NOTICE (5): Request Parameters
+2012-01-16T16:46:09-05:00 NOTICE (5): Page not found
+2012-01-16T16:46:09-05:00 NOTICE (5): Request Parameters
