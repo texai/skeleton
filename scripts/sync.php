@@ -6,6 +6,9 @@ $libraryPath = $projectPath . "/library/";
 $deltaPath = $projectPath . "/sql/";
 $logPath = $projectPath . "/logs/sync.log";
 
+$paths = array($libraryPath, get_include_path());
+set_include_path(implode(PATH_SEPARATOR, $paths));
+
 require 'Zend/Loader/Autoloader.php';
 $loader = Zend_Loader_Autoloader::getInstance();
 $loader->registerNamespace('App_');
@@ -16,9 +19,6 @@ $env = 'development';
 
 define ("APPLICATION_ENV", $env);
 date_default_timezone_set('America/Lima');
-
-$paths = array($libraryPath, get_include_path());
-set_include_path(implode(PATH_SEPARATOR, $paths));
 
 
 $config = new Zend_Config_Ini($configPath, $env);
