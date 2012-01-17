@@ -11,7 +11,7 @@ class AuthController extends App_Controller_Action
     public function loginAction()
     {
         $this->_helper->layout->setlayout('login');
-        $form = new Application_Form_Login();
+        $form = new App_Form_Login();
         if( $this->_request->isPost() ){
             $params = $this->_getAllParams();
             if($form->isValid($params)){

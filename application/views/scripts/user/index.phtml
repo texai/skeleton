@@ -1,4 +1,4 @@
-<? $url = $this->url(array('controller' => 'archivo', 'action' => 'nuevo'), null, true) ?>
+<? $url = $this->url(array('controller' => 'user', 'action' => 'new'), null, true) ?>
 <a class="btn primary pull-right" href="<?= $url ?>">Add User</a>
 <h2>Users</h2>
 
@@ -17,17 +17,22 @@
             <? foreach ($this->list as $key => $item): ?>
                 <tr>
                     <? $id = $item->id ?>
-                    <td><?= $item->name?> <?= $item->lastname?></td>
-                    <td><?= $item->email?></td>
-                    <td><?= $item->role?></td>
+                    <td><?= $item->name ?> <?= $item->lastname ?></td>
+                    <td><?= $item->email ?></td>
+                    <td><?= $item->role ?></td>
                     <td><span title="<?= $item->created_at ?>"><?= $this->Hace($item->created_at) ?> ago</span></td>
                     <td>
                         <? $base = array('controller' => 'user', 'id' => $id) ?>
-                        <? $url = $this->url($base + array('action' => 'edit'), null, true) ?>          <a href="<?= $url ?>"><span class="label notice">edit</span></a>
-                        <? if($item->active): ?>
-                            <? $url = $this->url($base + array('action' => 'deactivate'), null, true) ?>    <a href="<?= $url ?>"><span class="label important">deactivate</span></a>
+
+                        <? $url = $this->url($base + array('action' => 'edit'), null, true) ?>
+                        <a href="<?= $url ?>"><span class="label notice">edit</span></a>
+
+                        <? if ($item->active): ?>
+                            <? $url = $this->url($base + array('action' => 'deactivate'), null, true) ?>
+                            <a href="<?= $url ?>"><span class="label important">deactivate</span></a>
                         <? else: ?>
-                            <? $url = $this->url($base + array('action' => 'activate'), null, true) ?>      <a href="<?= $url ?>"><span class="label success">activate</span></a>
+                            <? $url = $this->url($base + array('action' => 'activate'), null, true) ?>
+                            <a href="<?= $url ?>"><span class="label success">activate</span></a>
                         <? endif; ?>
                     </td>
                 </tr>

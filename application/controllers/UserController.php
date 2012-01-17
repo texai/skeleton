@@ -11,13 +11,27 @@ class UserController extends App_Controller_Action
 
     public function init() {
         parent::init();
-        $this->mUser = new Application_Model_User();
+        $this->mUser = new App_Model_User();
         $this->indexUrl = $this->view->url(array('controller'=>'user','action'=>'index'),null,true);
     }
     
     public function indexAction()
     {
         $this->view->list = $this->mUser->fetchAll();
+    }
+    
+    public function newAction()
+    {
+        $form = new App_Form_User();
+        if($this->_request->isPost()){
+            $params = $this->_getAllParams();
+            if($form->isValid($params)){
+                $this->mUser->create($form->getValues(), $this->authData->id);
+                $this->getMessenger()->success('New User Added');
+                $this->_redirect($this->indexUrl);
+            }
+        }
+        $this->view->form = $form;
     }
     
     public function activateAction() {
@@ -32,7 +46,7 @@ class UserController extends App_Controller_Action
         $db = $this->mUser->getAdapter();
         $where = $db->quoteInto('id = ?', $this->_getParam('id'));
         $this->mUser->update(array('active'=>$value), $where);
-        $this->_helper->flashMessenger($msg);
+        $this->getMessenger()->success($msg);
         $this->_redirect($this->indexUrl);
     }
     

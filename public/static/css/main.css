@@ -23,3 +23,16 @@ body#loginbox form{
 body#loginbox #login-element{
     text-align: center;
 }
+
+#fmsgs{
+    width: 450px;
+    margin: 0px auto;
+}
+#fmsgs .alert-message p{
+    text-align: center;
+}
+
+
+.zfForm.form-stacked label{
+    margin-top: 8px;
+}

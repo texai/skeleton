@@ -1,6 +1,6 @@
 <?php
 
-class Application_Form_Login extends Zend_Form
+class App_Form_Login extends App_Form
 {
     public function init() {
         parent::init();

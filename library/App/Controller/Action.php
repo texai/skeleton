@@ -7,11 +7,17 @@ class App_Controller_Action extends Zend_Controller_Action {
      * @var Zend_Form_Element_Hash
      */
     protected $_hash = null;
-    protected $_flashMessenger = null;
+    
+    /**
+     *
+     * @var App_Controller_Action_Helper_FlashMessengerCustom
+     */
+    protected $_flashMessenger;
 
     public function init() {
 
-        $this->_fm = $this->_helper->getHelper('FlashMessengerCustom');
+        $this->_flashMessenger = $this->_helper->getHelper('FlashMessengerCustom');
+        $this->view->fmsgs = $this->_flashMessenger->getMessages();
         $this->_hash = new Zend_Form_Element_Hash('csrf_hash', array('salt' => 'exitsalt'));
         $this->_hash->setTimeout(3600);
         $this->_hash->initCsrfToken();
@@ -44,20 +50,6 @@ class App_Controller_Action extends Zend_Controller_Action {
         }
     }
 
-    /**
-     * Post-dispatch routines
-     *
-     * @return void
-     */
-    public function postDispatch() {
-//        $messages = $this->_flashMessenger->getMessages();
-//        if ($this->_flashMessenger->hasCurrentMessages()) {
-//            $messages = $this->_flashMessenger->getCurrentMessages();
-//            $this->_flashMessenger->clearCurrentMessages();
-//        }
-//        $this->view->assign('flashMessages', $messages);
-//        Zend_Layout::getMvcInstance()->assign('flashMessages', $messages);
-    }
 
     /**
      * Retorna la instancia personalizada de FlashMessenger
