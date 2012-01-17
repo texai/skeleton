@@ -14,20 +14,17 @@ $loader = Zend_Loader_Autoloader::getInstance();
 $loader->registerNamespace('App_');
 $loader->registerNamespace('Application_');
 defined('APPLICATION_PATH') || define('APPLICATION_PATH', $projectPath.'/application');
-$config = new Zend_Config_Ini(APPLICATION_PATH.'/configs/private.ini');
-$env = 'development';
 
-define ("APPLICATION_ENV", $env);
+define ("APPLICATION_ENV", 'development');
 date_default_timezone_set('America/Lima');
 
 
-$config = new Zend_Config_Ini($configPath, $env);
+$config = new Zend_Config_Ini($configPath, APPLICATION_ENV);
 $db = Zend_Db::factory($config->resources->db);
 $log = new Zend_Log(new Zend_Log_Writer_Stream($logPath));
 
 // Create application, bootstrap, and run
-defined('APPLICATION_ENV') || define('APPLICATION_ENV', $env);
-$application = new Zend_Application($env, $configPath);
+$application = new Zend_Application(APPLICATION_ENV, $configPath);
 $application->bootstrap();
 
 $mmm = new App_Migration_Manager($db, $deltaPath, $log);
