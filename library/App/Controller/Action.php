@@ -10,30 +10,8 @@ class App_Controller_Action extends Zend_Controller_Action {
     protected $_flashMessenger = null;
 
     public function init() {
-        // Auth Storage
-        if (Zend_Auth::getInstance()->hasIdentity()) {
-            $authStorage = Zend_Auth::getInstance()->getStorage()->read();
-            $isAuth = true;
-        } else {
-            $authStorage = null;
-            $isAuth = false;
-        }
-
-        $this->auth = $authStorage;
-        $this->view->assign('auth', $authStorage);
-        Zend_Layout::getMvcInstance()->assign('auth', $authStorage);
-
-        $this->isAuth = $isAuth;
-        $this->view->assign('isAuth', $isAuth);
-        Zend_Layout::getMvcInstance()->assign('isAuth', $isAuth);
-
-
-        $js = "var controller_actual='" . $this->getRequest()->getControllerName() . "';";
-        $this->view->headScript()->appendScript($js);
-
 
         $this->_fm = $this->_helper->getHelper('FlashMessengerCustom');
-
         $this->_hash = new Zend_Form_Element_Hash('csrf_hash', array('salt' => 'exitsalt'));
         $this->_hash->setTimeout(3600);
         $this->_hash->initCsrfToken();

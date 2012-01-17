@@ -1,35 +1,48 @@
 <?php
-/**
- *
- */
+
 class App_Auth_Adapter_DbTable_Salted extends Zend_Auth_Adapter_DbTable
 {
     
-    protected $_identityColumn = 'email';
-    protected $_credentialColumn = 'pswd';
-    protected $_rolColumn = 'rol';
-    protected $_where = 'activo = 1';
-    protected $_tableName = 'usuario';
-    protected $_rol = null;
-
+    protected $_where = null;
+    
+    public function __construct(
+        Zend_Db_Adapter_Abstract $zendDb = null,
+        $tableName = null,
+        $identityColumn = null,
+        $credentialColumn = null,
+        $credentialTreatment = null,
+        $where = null
+    ) {
+        parent::__construct(
+            $zendDb,
+            $tableName,
+            $identityColumn,
+            $credentialColumn,
+            $credentialTreatment
+        );
+        if (null !== $where) {
+            $this->_where = $where;
+        }
+        
+    }
 
     public function authenticate()
     {
         $this->_authenticateSetup();
 
-        $sel = $this->_zendDb->select()->from($this->_tableName)
-                ->where($this->_identityColumn . ' = ?', $this->_identity)
-                ->where($this->_rolColumn . ' like ?', $this->_rol."%")
-                ->where($this->_where);
+        $sql = $this->_zendDb->select()->from($this->_tableName)
+                ->where($this->_identityColumn . ' = ?', $this->_identity);
+        if(!is_null($this->_where)){
+            $sql->where($this->_where);
+        }
         
-        $row = $this->_zendDb->fetchRow($sel, array(), Zend_Db::FETCH_ASSOC);
+        $row = $this->_zendDb->fetchRow($sql, array(), Zend_Db::FETCH_ASSOC);
         $row['zend_auth_credential_match'] = 0;
-        if ($row) {
-            $encPass = $row[$this->_credentialColumn];
-            
-            if (self::checkPassword($this->_credential, $encPass)) {
-                $row['zend_auth_credential_match'] = 1;
-            }
+        if (
+            array_key_exists($this->_credentialColumn, $row)
+            && self::checkPassword($this->_credential, $row[$this->_credentialColumn])
+        ){
+            $row['zend_auth_credential_match'] = 1;
         }
 
         return $this->_authenticateValidateResult($row);
@@ -84,13 +97,4 @@ class App_Auth_Adapter_DbTable_Salted extends Zend_Auth_Adapter_DbTable
         return $credentialEnc == $encPass;
     }
     
-    public function setRol($rol)
-    {
-        $this->_rol = $rol;
-        return $this;
-    }
-
-
-
 }
-

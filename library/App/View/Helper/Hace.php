@@ -24,8 +24,8 @@ class App_View_Helper_Hace extends Zend_View_Helper_HtmlElement
             $dif = $dif*-1;
             $negativo = true;
         }
-        $pds = array('segundo', 'minuto', 'hora', 'día', 'semana',
-            'mes', 'año', 'década');
+        $pds = array('seg', 'min', 'hour', 'day', 'week', 'month', 'year', 'decade');
+        //$pds = array('segundo', 'minuto', 'hora', 'día', 'semana', 'mes', 'año', 'década');
         $lngh = array(1, 60, 3600, 86400, 604800,
             2630880, 31570560, 315705600);
         for (
