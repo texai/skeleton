@@ -37,12 +37,21 @@ class App_Model_User extends App_Db_Table_Abstract
         }, 'test');
     }
     
-    public function test2($id){
-        $this->getAdapter()->fetchAll("SELECT * FROM user");
+    public function listarUsuarios(){
         $p = 99;
         return $this->cache(function() use ($p) {
-            return rand(0,$p);
-        }, 'test2_ID', $id);
+            // implementacion de la funcion real
+            return $this->getAdapter()->fetchAll("SELECT * FROM user"); // ...
+        }, 'listarUsuarios');
     }
     
+    public function getUsuarioById($id){
+        $p = 99;
+        return $this->cache(function() use ($p,$id) {
+            // implementacion de la funcion real
+            $r = rand(0,$p);
+            $sql = $this->getAdapter()->select()->from('user')->where('id=?',$id)
+            return $this->getAdapter()->fetchAll($sql);            
+        }, 'usuario_ID', $id);
+    }    
 }
